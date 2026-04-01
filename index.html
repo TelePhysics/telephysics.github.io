@@ -1,888 +1,462 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time.">
-  
-  <meta name="keywords" content="TelePhysics, Physics-based Vision, 3D Scene Generation, Real-time Rendering, Physical Simulation">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <title>TelePhysics</title>
+    <meta charset="utf-8">
+    <meta name="description" content="TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time.">
+    <meta property="og:title" content="TelePhysics"/>
+    <meta property="og:description" content="Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time."/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta name="keywords" content="TelePhysics, Physics-based Vision, 3D Scene Generation, Real-time Rendering, Physical Simulation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/log.svg">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    <title>TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/log.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
+<body>
 
 
+<!-- ==================== Title ==================== -->
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://openreview.net/profile?id=%7EXin_Zhang70">Xin Zhang</a><sup>1,2*</sup>,</span>
-              <a href="https://scholar.google.com/citations?user=6aHx1rgAAAAJ&hl=zh-TW">Yabo Chen</a><sup>2*</sup>,</span>
-              Yijie Fang<sup>2</sup>,</span>
-              Wanying Qu<sup>1</sup>,</span>
-              <a href="https://brotherhuang.github.io">Haibin Huang</a><sup>2</sup>,</span>
-              Chi Zhang</a><sup>2</sup>,</span>
-              <a href="https://scholar.google.com/citations?user=i-N1K9oAAAAJ&hl=en">Feng Xu</a><sup>1</sup>,</span>
-              <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&hl=zh-CN">Xuelong Li</a><sup>2</sup>,</span>
-          </div>
+    <div class="hero-body" style="padding-bottom: 1rem;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time</h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://openreview.net/profile?id=%7EXin_Zhang70" target="_blank">Xin Zhang</a><sup>1,2</sup><sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=6aHx1rgAAAAJ&hl=zh-TW" target="_blank">Yabo Chen</a><sup>2</sup><sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            Yijie Fang<sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            Wanying Qu<sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <br class="author-br">
+                        <span class="author-block">
+                            <a href="https://brotherhuang.github.io" target="_blank">Haibin Huang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            Chi Zhang<sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=i-N1K9oAAAAJ&hl=en" target="_blank">Feng Xu</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&hl=zh-CN" target="_blank">Xuelong Li</a><sup>2</sup>
+                        </span>
+                        <br class="author-br">
+                        <div style="margin-top: 1rem;">
+                            <sup>1</sup>Fudan University &nbsp;&nbsp;
+                            <sup>2</sup>Institute of Artificial Intelligence, China Telecom (TeleAI)
+                            <br>
+                            <sup>*</sup>Equal contribution
+                        </div>
+
+                        <div class="row" style="margin-top: 2.5rem;">
+                            <div class="col text-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="assets/teleworld_physic.pdf" class="resource-button">
+                                            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                            Paper
+                                        </a>
+                                    </li>
+                                    <!-- <li class="list-inline-item">
+                                        <a href="https://arxiv.org/abs/xxx" class="resource-button">
+                                            <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                            arXiv
+                                        </a>
+                                    </li> -->
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/xinzhang007/TelePhysics" class="resource-button">
+                                            <span class="icon"><i class="fab fa-github"></i></span>
+                                            Code
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Fudan University,</span>
-            <span class="author-block"><sup>2</sup>Institute of Artificial Intelligence, China Telecom(TeleAI)</span>
-          </div>
+<!-- ==================== Teaser Video ==================== -->
+<section class="hero is-small">
+    <div class="hero-body" style="padding-top: 0.6rem;">
+        <div class="container is-max-desktop">
+            <video id="teaser" autoplay muted loop playsinline width="100%">
+                <source src="./static/videos/teaser.mp4" type="video/mp4">
+            </video>
+            <figcaption style="margin-top: 1rem; text-align: center;">
+                <strong><span class="dnerf">TelePhysics</span></strong> facilitates holistic 3D scene generation and physically grounded video synthesis from a single input image.
+            </figcaption>
+        </div>
+    </div>
+</section>
 
-          <div class="is-size-6 publication-authors">
-            <span class="author-block"><sup>(*</sup>:Equal Contribution)</span>
-          </div>
 
-          <!-- <span class="author-block"><strong>Anonymous</strong></span> -->
+<!-- ==================== Abstract ==================== -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Abstract</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <figcaption style="margin-top: 0; text-align: justify;">
+                    Recent generative video models achieve impressive visual quality but remain constrained by limited physical consistency and controllability. 
+                    Existing video generation methods provide minimal physical control, and single-image-to-3D conversion approaches often suffer from object interpenetration. 
+                    Furthermore, physics-based scene-level 3D generation methods exhibit spatial misalignment, stylized artifacts, and inconsistencies with the input data, restricting their use in realistic interactive video synthesis.
+                    We propose TelePhysics, a training-free framework that converts a single image into a physically consistent and controllable video through holistic scene-level 3D reconstruction. 
+                    By representing the full scene geometry in a unified spatial coordinate system, TelePhysics resolves object penetration and alignment ambiguity. This formulation enables accurate multi-object interactions and mechanics-based control, 
+                    such as applying forces and simulating rigid-body dynamics, while preserving the visual fidelity of the input. Unlike diffusion-based or autoregressive video priors that incur high inference latency, 
+                    our approach allows instantaneous physics simulation and real-time rendering after initialization. Experimental results demonstrate that TelePhysics substantially outperforms prior methods in physical fidelity, spatial coherence, and controllability.
+                  </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
 
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="assets/paper.pdf"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/abs/xxx"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/xxx"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span> -->
+<!-- ==================== Issues / Motivation ==================== -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Motivation</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <figcaption style="margin-top: 0; text-align: justify; margin-bottom: 1rem;">
+                    Prevalent issues in existing methods: video generation suffers from physically uncontrollable motion; single-image-to-3D reconstruction exhibits multi-object inter-penetration; physics-based scene-level 3D generation shows spatial misalignment and inconsistency with the input image; and physics-based 3D generation and control often results in cartoonish appearance.
+                </figcaption>
+                <video autoplay muted loop playsinline width="100%">
+                    <source src="./static/videos/issues.mp4" type="video/mp4">
+                </video>
+            </figure>
+        </div>
+    </div>
+</section>
 
+
+<!-- ==================== Method ==================== -->
+<section class="hero is-small">
+    <div class="hero-body" style="padding-top: 0.5rem;">
+        <div class="container is-max-desktop">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Method Overview</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <figcaption style="margin-top: 0; text-align: justify; margin-bottom: 1rem;">
+                    <strong>Overview of the TelePhysics framework.</strong>
+                    (a) Given a single input image and user controls, the pipeline
+                    applies Scene Perception to reconstruct 3D object meshes and synthesize a background environment. 
+                    (b) These components are grounded in a unified global coordinate system through Scene Alignment to ensure geometric consistency, while a VLM-driven parameter estimation module concurrently deduces the physical properties of each entity.
+                    (c) Guided by these semantic priors, the Physics Simulation stage computes physically compliant trajectories and collision responses. 
+                    (d) WonderTrace then bridges the visual domain gap by refining the coarse simulation renders
+                    into photorealistic video sequences.
+                </figcaption>
+                <img src="./static/images/pipeline.jpg" alt="TelePhysics Pipeline Overview" class="method-img">
+            </figure>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==================== Qualitative Comparisons ==================== -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Qualitative Comparisons</h2>
+            <figure class="image" style="margin-bottom: 1.5rem;">
+                <figcaption style="margin-top: 0; text-align: justify;">
+                    Comparison with state-of-the-art video generation models. The input includes an image, a motion prompt, and a text prompt.
+                </figcaption>
+            </figure>
+
+            <div class="comparison-slider">
+                <div class="comparison-slider-track">
+                    <!-- Example 1 -->
+                    <div class="box comparison-group comparison-slide active">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, the dominoes are stationary. A row of white dominoes falls from left to right, each domino tilting forward and striking the next, as if a propagating force is transmitted along the chain of dominoes, causing each domino to rotate around its base until it falls completely flat. The viewing perspective is fixed."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_domino_1.00_50_4.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+
+                    <!-- Example 2 -->
+                    <div class="box comparison-group comparison-slide">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, the three balls in the scene were stationary. Then, they were simultaneously subjected to a horizontal force directed towards the bucket, causing them to roll across the table, strike the bucket, and then fall to the ground."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_scene_10_1.00_50_1.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+
+                    <!-- Example 3 -->
+                    <div class="box comparison-group comparison-slide">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, the two ceramic bowls were stationary. Then, the smaller bowl was smoothly lifted upwards, moved to the left, and then, due to gravity, dropped onto the larger bowl, eventually stacking inside it. The camera angle shifted slightly downwards."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_bowl_1.00_10_0.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+
+                    <!-- Example 4 -->
+                    <div class="box comparison-group comparison-slide">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, the teddy bear was at rest with zero initial velocity. Subsequently, due to a force applied from the right, the teddy bear began to move and eventually fell off the edge of the chair. The viewing perspective switches from the front to the right side."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_chair_toy_05.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+
+                    <!-- Example 5 -->
+                    <div class="box comparison-group comparison-slide">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, all the whales were stationary; the blue whale was first subjected to a force pushing it towards the upper right, and the gray shark was subjected to an upward force. Eventually, the gray shark plush toy was knocked out of view. The camera perspective remained unchanged throughout the entire process."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_whale_shark_1.00_25_3.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+
+                    <!-- Example 6 -->
+                    <div class="box comparison-group comparison-slide">
+                        <div class="prompt-bar">
+                            <span class="prompt-tag">Prompt</span>
+                            <span class="prompt-text">
+                                "Initially, all three oranges were stationary on a flat surface. Their texture was somewhat like jelly. Subsequently, each of the three oranges was subjected to an upward force, causing them to move, and eventually fall. The camera perspective remained unchanged throughout the entire process."
+                            </span>
+                        </div>
+                        <div class="compare-grid">
+                            <div class="compare-item"><span class="compare-label">Input Image</span><img src="./static/images/rendered_orange_1.00_5_2.jpg" alt="Input"></div>
+                            <div class="compare-item"><span class="compare-label is-ours">Ours</span><video poster="" autoplay muted playsinline><source src="./static/videos/test_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">CogVideoX1.5</span><video poster="" autoplay muted playsinline><source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">PhysCtrl</span><video poster="" autoplay muted playsinline><source src="./static/videos/physctrl_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Sora2-pro</span><video poster="" autoplay muted playsinline><source src="./static/videos/sora_2_pro_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Veo3.1</span><video poster="" autoplay muted playsinline><source src="./static/videos/veo_3_1_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-5B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_5b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                            <div class="compare-item"><span class="compare-label">Wan2.2-A14B</span><video poster="" autoplay muted playsinline><source src="./static/videos/wan_14b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4"></video></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider controls -->
+                <div class="slider-controls">
+                    <button class="slider-btn slider-prev" aria-label="Previous example">&#10094;</button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-btn slider-next" aria-label="Next example">&#10095;</button>
+                </div>
             </div>
 
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-      <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4" type="video/mp4">
-      </video>
+<!-- ==================== Additional Results ==================== -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Additional Results</h2>
 
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf"><strong>TelePhysics</strong></span> facilitates holistic 3D scene generation and physically grounded video synthesis from a single input image.
-      </h2>
-    </div>
-  </div>
-</section>
+            <!-- Perspective Alignment -->
+            <figure class="image" style="margin-bottom: 2.5rem;">
+                <figcaption style="margin-top: 0; text-align: justify; margin-bottom: 1rem;">
+                    <strong>Perspective alignment.</strong>
+                </figcaption>
+                <video autoplay muted loop playsinline width="100%">
+                    <source src="./static/videos/pa.mp4" type="video/mp4">
+                </video>
+            </figure>
 
-<section class="section" style="background-color: #f5f5f5; border-radius: 10px; margin: 2rem 0;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Recent generative video models achieve high visual quality but remain fundamentally limited in physical consistency and controllability. Video generation methods are often physically uncontrollable, while single-image to 3D approaches frequently suffer from multi-object inter-penetration. 
-          </p>
-          <p>
-            We propose TelePhysics, a training-free framework that transforms a single image into a physically consistent and controllable video through holistic scene-level 3D reconstruction. 
-            By modeling the entire scene geometry within a unified spatial representation, TelePhysics resolves inter-object penetration and alignment ambiguities, enabling precise multi-object interaction and mechanics-based control such as force application and rigid-body dynamics.
-          </p>
-          <p>
-            Unlike diffusion-based or autoregressive video priors with high inference latency, our approach supports instantaneous physics simulation and real-time rendering once initialized. Experiments demonstrate that TelePhysics significantly outperforms existing methods in physical fidelity, spatial coherence, and controllability.
-          </p>
+            <!-- Camera Motion -->
+            <figure class="image" style="margin-bottom: 0;">
+                <figcaption style="margin-top: 0; text-align: justify; margin-bottom: 1rem;">
+                    <strong>Camera motion and viewpoint variation.</strong>
+                </figcaption>
+                <video autoplay muted loop playsinline width="100%">
+                    <source src="./static/videos/222.mp4" type="video/mp4">
+                </video>
+            </figure>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!--/ Issues. -->
-    <div class="columns is-centered has-text-centered" style="margin-top: 3rem;">
-      <div class="column is-max-desktop">
-        <h2 class="title is-3">Issues</h2>
-        <div class="hero-body" style="padding-top: 0rem;">
-          <video id="issues" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/issues.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            <strong>Prevalent issues in existing methods.</strong>
-            Video generation suffers from physically uncontrollable motion;
-            single-image-to-3D reconstruction exhibits multi-object inter-penetration;
-            physics-based scene-level 3D generation shows spatial misalignment and
-            inconsistency with the input image; and physics-based 3D generation and
-            control often results in cartoonish appearance.
-          </h2>
+<!-- ==================== BibTeX ==================== -->
+<!-- <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">BibTeX</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <pre class="bibtex-pre">@inproceedings{zhang2025telephysics,
+  title     = {TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image in Real Time},
+  author    = {Zhang, Xin and Chen, Yabo and Fang, Yijie and Qu, Wanying and Huang, Haibin and Zhang, Chi and Xu, Feng and Li, Xuelong},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2025}
+}</pre>
+            </figure>
         </div>
-      </div>
     </div>
-    <!--/ Issues. -->
+</section> -->
 
-    <!--/ Pipeline. -->
-    <div class="columns is-centered has-text-centered" style="margin-top: 3rem;">
-      <div class="column is-max-desktop">
-        <h2 class="title is-3">Pipeline</h2>
 
-        <div class="publication-image">
-          <img src="./static/images/pipeline.jpg"
-               alt="TelePhysics Pipeline Overview"
-               class="blend-img-background center-block"
-               style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+<!-- ==================== Footer ==================== -->
+<footer class="site-footer">
+    <p>This website template is adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.</p>
+</footer>
 
-        <div class="content has-text-justified" style="margin-top: 1.5rem;">
-          <p>
-            <strong>Overview of the TelePhysics framework.</strong>
-            A single input image is converted into a physically consistent dynamic scene
-            via four key stages:
-          </p>
-          <ul>
-            <li>
-              <strong>(1) Scene Perception:</strong>
-              Decomposes the input into geometric primitives and a holistic background.
-            </li>
-            <li>
-              <strong>(2) Scene Alignment:</strong>
-              Maps all entities into a unified world coordinate frame to ensure spatial consistency.
-            </li>
-            <li>
-              <strong>(3) Physics Simulation:</strong>
-              Computes complex multibody dynamics and contact constraints.
-            </li>
-            <li>
-              <strong>(4) Video-Generation-based Rendering:</strong>
-              Synthesizes high-fidelity, temporally coherent video from the simulated physical trajectories.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!--/ Pipeline. -->
 
-  </div>
-</section>
-
-
-
-<!-- Comparison Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Qualitative Comparisons</h2>
-    <div class="content has-text-justified">
-      <p>
-        Comparison with state-of-the-art video generation models. 
-        The input includes an image, a motion prompt, and a text prompt.
-      </p>
-    </div>
-
-    <!-- Example 1 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, the dominoes are stationary. A row of white dominoes falls from left to right, each domino tilting forward and striking the next, as if a propagating force is transmitted along the chain of dominoes, causing each domino to rotate around its base until it falls completely flat. The viewing perspective is fixed."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_domino_1.00_50_4.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_s/rendered_domino_1.00_50_4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 1 End -->
-
-
-    <!-- Example 2 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, the three balls in the scene were stationary. Then, they were simultaneously subjected to a horizontal force directed towards the bucket, causing them to roll across the table, strike the bucket, and then fall to the ground."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_scene_10_1.00_50_1.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_s/rendered_scene_10_1.00_50_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 2 End -->
-
-
-
-    <!-- Example 3 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, the two ceramic bowls were stationary. Then, the smaller bowl was smoothly lifted upwards, moved to the left, and then, due to gravity, dropped onto the larger bowl, eventually stacking inside it. The camera angle shifted slightly downwards."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_bowl_1.00_10_0.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_d/rendered_bowl_1.00_10_0.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 3 End -->
-
-
-
-    <!-- Example 4 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, the teddy bear was at rest with zero initial velocity. Subsequently, due to a force applied from the right, the teddy bear began to move and eventually fell off the edge of the chair. The viewing perspective switches from the front to the right side."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_chair_toy_05.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_d/rendered_chair_toy_05.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 4 End -->
-
-
-
-    <!-- Example 5 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, all the whales were stationary; the blue whale was first subjected to a force pushing it towards the upper right, and the gray shark was subjected to an upward force. Eventually, the gray shark plush toy was knocked out of view. The camera perspective remained unchanged throughout the entire process."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_whale_shark_1.00_25_3.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_s/rendered_whale_shark_1.00_25_3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 5 End -->
-
-
-
-    <!-- Example 6 Start -->
-    <div class="box comparison-group" style="background-color: #f5f5f5;">
-      <!-- Prompt Display -->
-      <div class="has-text-centered" style="margin-bottom: 1rem;">
-        <span class="tag is-dark is-medium">Prompt</span>
-        <span class="is-size-5" style="font-family: 'Google Sans', sans-serif; margin-left: 0.5rem;">
-          "Initially, all three oranges were stationary on a flat surface. Their texture was somewhat like jelly. Subsequently, each of the three oranges was subjected to an upward force, causing them to move, and eventually fall. The camera perspective remained unchanged throughout the entire process."
-        </span>
-      </div>
-
-      <!-- Grid Layout: 2 Rows, 4 Columns -->
-      <div class="columns is-multiline is-mobile is-centered is-gapless-mobile">
-        
-        <!-- 1. Input Image -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Input Image</span>
-            <img src="./static/images/rendered_orange_1.00_5_2.jpg" alt="Input">
-          </div>
-        </div>
-
-        <!-- 2. Ours (TelePhysics) -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label is-ours">Ours</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/test_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 3. Baseline 1 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">CogVideoX1.5</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/cogvideo_5b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 4. Baseline 2 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">PhysCtrl</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/physctrl_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Baseline 3 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Sora2-pro</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/sora_2_pro_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 6. Baseline 4 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Veo3.1</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/veo_3_1_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 7. Baseline 5 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-5B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_5b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- 8. Baseline 6 -->
-        <div class="column is-3-desktop is-6-mobile">
-          <div class="compare-item">
-            <span class="compare-label">Wan2.2-A14B</span>
-            <video poster="" autoplay muted playsinline>
-              <source src="./static/videos/wan_14b_demo/multi_s/rendered_orange_1.00_5_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!-- Example 6 End -->
-
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!--/  perspective alignment. -->
-    <div class="columns is-centered has-text-centered" style="margin-top: 3rem;">
-      <div class="column is-max-desktop">
-        <h2 class="title is-3">Perspective Alignment</h2>
-        <div class="hero-body" style="padding-top: 0rem;">
-          <video id="issues" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/pa.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            <strong>Perspective alignment</strong>
-          </h2>
-        </div>
-      </div>
-    </div>
-    <!--/  perspective alignment. -->
-
-    <!--/  Camera motion and Viewpoint variation. -->
-    <div class="columns is-centered has-text-centered" style="margin-top: 3rem;">
-      <div class="column is-max-desktop">
-        <h2 class="title is-3">Camera motion and Viewpoint variation</h2>
-        <div class="hero-body" style="padding-top: 0rem;">
-          <video id="issues" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/222.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            <strong>Camera motion and viewpoint variation</strong>
-          </h2>
-        </div>
-      </div>
-    </div>
-    <!--/  Camera motion and Viewpoint variation. -->
-
-  </div>
-</section>
-
-
-
+<!-- ==================== Scripts ==================== -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. 找到所有的对比组 (每一个 box 都是一个独立的组)
-  const groups = document.querySelectorAll('.comparison-group');
+    // ── Comparison slider ──────────────────────────────
+    const slides = document.querySelectorAll('.comparison-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    let current = 0;
 
-  groups.forEach(group => {
-    // 获取当前组内的所有视频
-    const videos = group.querySelectorAll('video');
-    if (videos.length === 0) return;
+    if (slides.length > 0 && dotsContainer) {
+        // Build dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Example ${i + 1}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
 
-    let endedCount = 0;
+        function goTo(index) {
+            slides[current].querySelectorAll('video').forEach(v => { v.pause(); v.currentTime = 0; });
+            slides[current].classList.remove('active');
+            dotsContainer.querySelectorAll('.slider-dot')[current].classList.remove('active');
 
-    videos.forEach(video => {
-      // 确保 loop 属性被移除，否则 ended 事件不会触发
-      video.loop = false; 
-      
-      // 监听每个视频的结束事件
-      video.addEventListener('ended', () => {
-        endedCount++;
+            current = (index + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dotsContainer.querySelectorAll('.slider-dot')[current].classList.add('active');
 
-        // 只有当组内所有视频都播放完毕时
-        if (endedCount === videos.length) {
-          
-          // 可选：添加 1 秒的停顿，让观众看清最后一帧
-          setTimeout(() => {
-            // 重置计数器
-            endedCount = 0;
-            
-            // 所有视频重头播放
-            videos.forEach(v => {
-              v.currentTime = 0;
-              v.play();
-            });
-          }, 1000); // 1000ms = 1秒延迟，不需要延迟可改为 0
+            slides[current].querySelectorAll('video').forEach(v => v.play().catch(() => {}));
         }
-      });
+
+        document.querySelector('.slider-prev').addEventListener('click', () => goTo(current - 1));
+        document.querySelector('.slider-next').addEventListener('click', () => goTo(current + 1));
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') goTo(current - 1);
+            if (e.key === 'ArrowRight') goTo(current + 1);
+        });
+    }
+
+    // Synchronized replay for comparison groups (only active slide)
+    function setupGroupSync(group) {
+        const videos = group.querySelectorAll('video');
+        if (videos.length === 0) return;
+        let endedCount = 0;
+        videos.forEach(video => {
+            video.loop = false;
+            video.addEventListener('ended', () => {
+                endedCount++;
+                if (endedCount === videos.length) {
+                    setTimeout(() => {
+                        endedCount = 0;
+                        videos.forEach(v => { v.currentTime = 0; v.play(); });
+                    }, 1000);
+                }
+            });
+        });
+    }
+    document.querySelectorAll('.comparison-group').forEach(setupGroupSync);
+
+    // Autoplay videos only when scrolled into view
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('video').forEach(video => {
+        observer.observe(video);
     });
-  });
 });
 </script>
 

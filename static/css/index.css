@@ -1,77 +1,47 @@
+/* ===== RealWonder-style Project Page ===== */
+
+/* ── Brand & globals ─────────────────────────────────── */
+:root {
+    --brand: rgb(35, 38, 59);
+    --brand-border: rgba(35, 38, 59, 0.12);
+    --text-body: #3a3a3a;
+    --text-caption: #4a4a4a;
+}
+
 body {
-  font-family: 'Noto Sans', sans-serif;
+    font-family: 'Mulish', sans-serif;
+    color: var(--text-body);
+    -webkit-font-smoothing: antialiased;
 }
 
-
-.footer .icon-link {
-    font-size: 25px;
-    color: #000;
+/* ── Section spacing ─────────────────────────────────── */
+section.hero.is-small > .hero-body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+/* ── Section headings ────────────────────────────────── */
+h2.title.is-2 {
+    color: var(--brand) !important;
+    font-size: 1.7rem !important;
+    font-weight: 700;
+    margin-bottom: 1.5rem !important;
 }
 
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
+/* ── Publication title ───────────────────────────────── */
 .publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    color: var(--brand);
 }
 
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
+    font-family: 'Mulish', sans-serif;
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+    color: hsl(204, 86%, 53%) !important;
+    text-decoration: none;
 }
 
 .publication-authors a:hover {
@@ -79,143 +49,328 @@ body {
 }
 
 .author-block {
-  display: inline-block;
+    display: inline-block;
 }
 
-.publication-banner img {
+/* ── Body text / captions ────────────────────────────── */
+figcaption {
+    line-height: 1.85;
+    color: var(--text-caption);
+    font-size: 0.975rem;
 }
 
-.publication-authors {
-  /*color: #4286f4;*/
+/* ── All videos: consistent rounding & shadow ────────── */
+video {
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+    display: block;
 }
 
-.publication-video {
-    position: relative;
+/* ── Teaser section ──────────────────────────────────── */
+.teaser-img {
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
+    display: block;
 }
 
-.publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.teaser .hero-body {
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.teaser-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-caption);
+    line-height: 1.7;
+    margin-top: 1.2rem;
+}
+
+/* ── Resource buttons (paper, code, etc.) ────────────── */
+.resource-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(35, 38, 59);
+    color: #FFFFFF !important;
+    border-radius: 30px;
+    padding: 8px 16px 9px;
+    transition: transform 200ms;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 1px;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 1.5rem;
+    font-size: 1.0rem;
+}
+
+.resource-button:hover {
+    color: #FFFFFF !important;
+    text-decoration: underline;
+    text-decoration-color: #FFFFFF;
+}
+
+.resource-button:visited {
+    color: #FFFFFF !important;
+}
+
+.resource-button .icon {
+    margin-right: 6px;
+    font-size: 1.1rem;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.list-inline-item {
+    display: inline-block;
+}
+
+/* ── BibTeX block ────────────────────────────────────── */
+.bibtex-pre {
+    background: #f7f7f9;
+    border: 1px solid #e4e4e8;
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    text-align: left;
+    color: #333;
+}
+
+/* ── Pipeline / Method image ─────────────────────────── */
+.method-img {
     width: 100%;
-    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
 }
 
-.publication-body img {
+/* ── Comparison section ──────────────────────────────── */
+.comparison-group {
+    background: #f7f7f9 !important;
+    border: 1px solid #e4e4e8;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: none;
 }
 
-.results-carousel {
-  overflow: hidden;
+.prompt-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e4e4e8;
 }
 
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
+.prompt-tag {
+    flex-shrink: 0;
+    background: var(--brand);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.3em 0.7em;
+    border-radius: 4px;
+    margin-top: 2px;
 }
 
-.results-carousel video {
-  margin: 0;
+.prompt-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-caption);
+    font-style: italic;
 }
 
-
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
+/* Compare grid */
+.compare-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
 }
 
-.interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-#interpolation-image-wrapper img {
-  border-radius: 5px;
-}
-
-
-/* 视频播放器美化 */
-.physomni-player {
-  border-radius: 12px;           /* 圆角 */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* 柔和阴影 */
-  border: 1px solid rgba(255, 255, 255, 0.1);  /* 微弱边框 */
-  transition: transform 0.3s ease; /* 鼠标悬停时的平滑过渡 */
-  background-color: #000;         /* 加载前背景色 */
-}
-
-/* 鼠标悬停在视频上时稍微放大，增加交互感
-.physomni-player:hover {
-  transform: scale(1.01);
-} */
-
-
-/* 比较部分的样式 */
-.compare-item {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 6px; /* 圆角 */
-  border: 1px solid #ddd; /* 细微边框 */
-  background: #000;
-}
-
-.compare-item img, .compare-item video {
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none;
+@media (max-width: 768px) {
+    .compare-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
     }
+    .author-br { display: none; }
+}
 
-/* 标签样式 */
+.compare-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid #e4e4e8;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.compare-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.compare-item img,
+.compare-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+}
+
 .compare-label {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 2px 6px;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  z-index: 10;
-  pointer-events: none; /* 让鼠标事件穿透标签 */
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 4px;
+    z-index: 2;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
 }
 
-/* 高亮你的模型 */
 .compare-label.is-ours {
-  background-color: rgba(255, 56, 96, 0.8); /* Bulma的红色，醒目 */
-  font-weight: bold;
+    background: rgba(220, 38, 38, 0.85);
+    font-weight: 700;
 }
 
-/* 移动端优化：减小间隙 */
-@media screen and (max-width: 768px) {
-  .is-gapless-mobile {
-    gap: 2px !important;
-  }
-  .column.is-6-mobile {
-    padding: 2px !important;
-  }
+/* ── Comparison slider ───────────────────────────────── */
+.comparison-slider {
+    position: relative;
+}
+
+.comparison-slider-track {
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-slide {
+    display: none;
+    animation: slideFadeIn 0.4s ease;
+}
+
+.comparison-slide.active {
+    display: block;
+}
+
+@keyframes slideFadeIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.slider-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #e4e4e8;
+    background: #fff;
+    color: var(--brand);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+}
+
+.slider-btn:hover {
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(35, 38, 59, 0.25);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d4d4d8;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.slider-dot:hover {
+    background: #a1a1aa;
+}
+
+.slider-dot.active {
+    background: var(--brand);
+    transform: scale(1.25);
+}
+
+/* ── Video showcase ──────────────────────────────────── */
+.video-showcase {
+    margin-bottom: 2.5rem;
+}
+
+.video-showcase video {
+    width: 100%;
+}
+
+.video-caption {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-caption);
+    margin-top: 0.8rem;
+    line-height: 1.7;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.site-footer {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.site-footer a {
+    color: hsl(204, 86%, 53%);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── Smooth scroll ───────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ── dnerf small caps ────────────────────────────────── */
+.dnerf {
+    font-variant: small-caps;
 }
